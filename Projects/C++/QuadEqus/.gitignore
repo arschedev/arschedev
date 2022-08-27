@@ -1,0 +1,8 @@
+#
+.vscode/
+.history/
+log.txt
+
+#
+tests/
+main
