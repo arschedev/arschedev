@@ -1,4 +1,5 @@
 ### [Hi there 👋](https://arschedev.github.io/)
+![cats](https://c.tenor.com/GTlDCm4P4EsAAAAd/kitty-kitten.gif)
 
 
 <!--
