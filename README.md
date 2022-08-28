@@ -1,6 +1,6 @@
 ### [Hi there 👋](https://arschedev.github.io/)
-<!-- ![cats](https://c.tenor.com/GTlDCm4P4EsAAAAd/kitty-kitten.gif) -->
-![rick](https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif)
+![cats](https://c.tenor.com/GTlDCm4P4EsAAAAd/kitty-kitten.gif)
+<!-- ![rick](https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif) -->
 
 
 <!--
