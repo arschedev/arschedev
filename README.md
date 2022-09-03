@@ -1,7 +1,8 @@
 ### [Hi there 👋](https://arschedev.github.io/)
-![cats](https://c.tenor.com/GTlDCm4P4EsAAAAd/kitty-kitten.gif)
-<!-- ![rick](https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif) -->
+<img alt="cats" src="./cats.gif" height="250">
 
+
+<!-- ![rick](https://c.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif) -->
 
 <!--
 **arschedev/arschedev** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
