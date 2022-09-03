@@ -37,6 +37,7 @@ int main()
   greet();
 
   // repeater
+  bool dev = false;
   for (;;)
   {
     // >
@@ -73,7 +74,8 @@ int main()
         inputs[i] = regex_replace(inputs[i], regex("\\s+"), str2::EMPTY_STR);
       }
       fix_v(&inputs);
-      cout_v(inputs);
+      if (dev)
+        cout_v(inputs);
     }
     // -> [a]x^2=0
     else if (regex_match(input, NUMBER_REGEX))
@@ -91,7 +93,7 @@ int main()
       // cmds/commands
       else if (input == "cmds" || input == "commands")
       {
-        cout << "\n commands: help, cmds/commands, cls/clear, info, exit\n";
+        cout << "\n commands: help, cmds/commands, cls/clear, info, exit, dev\n";
       }
       // cls/clear
       else if (input == "cls" || input == "clear")
@@ -102,13 +104,19 @@ int main()
       // info
       else if (input == "info")
       {
-        cout << "\n info: version 0.0.0 by arschedev\n";
+        cout << "\n info: version 0.1.0 by arschedev (https://github.com/arschedev)\n";
       }
       // exit
       else if (input == "exit")
       {
         cout << endl;
         break;
+      }
+      // dev
+      else if (input == "dev")
+      {
+        cout << "\n dev mode enabled\n";
+        dev = true;
       }
       //-
       else
