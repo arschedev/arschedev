@@ -104,7 +104,7 @@ int main()
       // info
       else if (input == "info")
       {
-        cout << "\n info: version 0.1.0 by arschedev (https://github.com/arschedev)\n";
+        cout << "\n info: version 0.1.1 by arschedev (https://github.com/arschedev)\n";
       }
       // exit
       else if (input == "exit")
@@ -197,8 +197,14 @@ void start()
 
 void clrscr()
 {
+  #ifdef _WIN32
+  system("cls");
+  #elif _WIN64
+  system("cls");
+  #else
   // CSI[2J - clear screen, CSI[H - move cursor to start position
   cout << "\x1B[2J\x1B[H";
+  #endif
 }
 
 void cout_v(vector<string> v)
