@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 	srand(time(NULL));
 
 	// title & color
-	system("title Get rickrolled :D");
+	system("title Get rickrolled :D . . . (https://github.com/arschedev/arschedev/tree/main/Projects/C++)");
 	system("color 0a");
 
 	// text & margins
