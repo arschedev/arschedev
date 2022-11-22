@@ -7,7 +7,7 @@
 
 - 🌱 I’m currently learning **Ruby & C++**
 
-- 👨‍💻 All of my projects are available at [arschedev.github.io](arschedev.github.io)
+- 👨‍💻 All of my projects are available at [arschedev.github.io](https://arschedev.github.io)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
