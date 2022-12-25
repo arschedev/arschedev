@@ -10,17 +10,22 @@
 ```
 ruby main.rb
 ```
+
 ###### Command Line Arguments
 ```
 ruby main.rb <string> <shift>
 ```
+
 - Shift "Hello There!" by 2
+
 ```
 > ruby main.rb "Hello There!" 2
 Jgnnq Vjgtg!
 
 ```
+
 - Decoding
+
 ```
 > ruby main.rb "Jgnnq Vjgtg!" -2
 Hello There!
