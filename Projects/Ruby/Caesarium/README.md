@@ -1,8 +1,13 @@
 # Caesarium
-#### Caesar cipher endcoder/decoder
+#### Caesar cipher endcoder / decoder
+
+![Caesarium](./caesarium.png)
+
+---
 
 ###### Installation
 1. Download [Ruby](https://www.ruby-lang.org)
+1. [Download project directory](https://downgit.evecalm.com/#/home?url=https://github.com/arschedev/arschedev/tree/main/Projects/Ruby/Caesarium)
 1. Open project directory
 1. Run `bundle install` in your terminal
 
