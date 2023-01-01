@@ -2,20 +2,15 @@
 # Encoder
 #
 
-def isUpper?(string)
-	string == string.upcase
-end
-
-def isLower?(string)
-	string == string.downcase
-end
+require './modules/Utils.rb'
 
 module Encoder
-	def Encoder.encode(string, shift)
-		alphabetU = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split ""
-		alphabetL = "abcdefghijklmnopqrstuvwxyz".split ""
+	def Encoder.Encode(message, shift)
+		alphabets = Struct
+			.new(:latin_upper, :latin_lower)
+			.new("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), "abcdefghijklmnopqrstuvwxyz".split(""))
 
-		chars = string.split ""
+		chars = message.split ""
 
 		result = ""
 
@@ -26,10 +21,10 @@ module Encoder
 
 			# Upper/Lower
 			if char != nil
-				if isUpper? char
-					alphabet = alphabetU
-				elsif isLower? char
-					alphabet = alphabetL
+				if Utils.isUpper? char
+					alphabet = alphabets.latin_upper
+				elsif Utils.isLower? char
+					alphabet = alphabets.latin_lower
 				else
 					result << char
 					next
@@ -59,6 +54,6 @@ module Encoder
 		end
 
 		# return
-		Struct.new(:result, :upper, :lower).new(result, result.upcase, result.downcase)
+		Struct.new(:normal, :upper, :lower).new(result, result.upcase, result.downcase)
 	end
 end

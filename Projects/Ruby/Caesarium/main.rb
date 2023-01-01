@@ -1,104 +1,108 @@
 # ruby main.rb
-# ruby main.rb <string> <shift>
+# ruby main.rb <message> <shift>
 # ruby main.rb "Hello World!" 2
 
 require 'colorize'
-require 'os'
 
 require 'io/console'
-require './modules/ASCII.rb'
+require './modules/title.rb'
+require './modules/parts/Parts.rb'
 require './modules/encoder.rb'
 require './modules/keypress.rb'
-require './modules/stdgets.rb'
+require './modules/Utils.rb'
 
-def pause
-	print "\n"
-	STDIN.getch
-end
+cli_mode = false
 
-cli = false
+message = "", shift = 0
 
-string = "", shift = 0
-
-decode = false
+decodeMode = false
 
 # Title
-system("title Caesarium") if OS.windows?
-system("echo \"\033]0;Caesarium\007\"") if OS.linux?
-system("echo -n -e \"\033]0;Caesarium\007\"") if OS.mac?
+Title.SetTitle("Caesarium")
 
 # Command Line Arguments
 if ARGV[0] && ARGV[1]
-	string = ARGV[0]
+	message = ARGV[0]
 	shift = ARGV[1].to_i
 
 # Command Line Interface
 else
-	cli = true
-	puts "#{ASCII.light_cyan}\n#{" " * 20}by @arschedev\n\n".light_cyan
+	cli_mode = true
 	#
-	puts " Press ".light_blue +
-	"[1]".light_magenta +
-	" to encode message, ".light_blue +
-	"[2]".light_magenta +
-	" to decode".light_blue
-	print "\n"
+	puts Parts.CAESARIUM
+	puts Parts.DIALOG
 	#
-	loop do
-		breakl = false
-		Keypress.Handle do |k|
-			decode = true if k == "2"
-			breakl = true if k == "2" or k == "1"
-			if k == ""
-				print "\n"
-				exit
-			end
+	Keypress.LoopHandle do |k|
+		k = k.downcase
+		# cyrillic to latin
+		k = "e" if k == "у"
+		k = "d" if k == "в"
+		#
+		decodeMode = true if k == "d"
+		break if k == "e" || k == "d"
+		if k == ""
+			print "\n"
+			exit
 		end
-		break if breakl
 	end
 	#
-	print " Message: ".light_yellow
+	print Parts.MESSAGE
 	loop do
-		string = stdgets
-		string == "" ? next : break
-	end
-	#
-	print "\n Shift: ".light_yellow
-	loop do
-		shift = stdgets
-		shift.strip!
-		next if shift == ""
-		if shift.to_i == 0
-			puts "\n Error: invalid shift value".red
-			print "\n Shift: ".light_yellow
+		message = gets.chomp.strip
+		if message != ""
+			break
+		else
+			Utils.Cls
+			puts Parts.CAESARIUM
+			puts Parts.DIALOG
+			print Parts.MESSAGE
 			next
 		end
-		shift = shift.to_i
-		break
+	end
+	#
+	print Parts.SHIFT
+	loop do
+		shift = gets.chomp.strip
+		if shift != ""
+			if shift.to_i == 0
+				puts " Error: invalid shift value".red
+				print "\n Shift: ".light_yellow
+				next
+			end
+			shift = shift.to_i
+			break
+		else
+			Utils.Cls
+			puts Parts.CAESARIUM
+			puts Parts.DIALOG
+			print Parts.MESSAGE("#{message}\n")
+			print Parts.SHIFT
+			next
+		end
 	end
 end
 
 # Shift limit
 if shift > 26
-	if cli
-		puts "\n Error: #{shift} for shift is too much. The maximum is 26".red
-		pause
+	if cli_mode
+		puts " Error: #{shift} for shift is too much. The maximum is 26".red
+		Utils.Pause
 	else
 		puts "Error: given shift is too big. The maximum is 26"
 	end
 	exit 1
 end
 
-ENCODED = Encoder.encode(string, decode ? -shift : shift)
+RESULT = Encoder.Encode(message, decodeMode ? -shift : shift)
 
-if cli
-	puts "\n\n " + "Result: ".light_magenta + "#{ENCODED.result.light_white}" +
-	"\n | ".light_yellow + "Upper: ".light_magenta + "#{ENCODED.upper.light_white}" +
-	"\n | ".light_yellow + "Lower: ".light_magenta + "#{ENCODED.lower.light_white}"
+if cli_mode
+	puts "\n " + "Result: ".light_magenta + "#{RESULT.normal.light_white}" +
+	"\n | ".light_yellow + "Upper: ".light_magenta + "#{RESULT.upper.light_white}" +
+	"\n | ".light_yellow + "Lower: ".light_magenta + "#{RESULT.lower.light_white}"
 else
-	puts ENCODED.result
+	puts RESULT.normal
 	exit 0
 end
 
 # Press any key to continue...
-pause
+Utils.Pause

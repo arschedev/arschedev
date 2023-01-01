@@ -1,5 +1,5 @@
 # Caesarium
-#### Caesar cipher endcoder / decoder
+#### Caesar cipher encoder / decoder
 
 ![Caesarium](./caesarium.png)
 
@@ -18,21 +18,21 @@ ruby main.rb
 
 ###### Command Line Arguments
 ```
-ruby main.rb <string> <shift>
+ruby main.rb <message> <shift>
 ```
 
-- Shift "Hello There!" by 2
+- Shift "Hello World!" by 2
 
 ```
-> ruby main.rb "Hello There!" 2
-Jgnnq Vjgtg!
+> ruby main.rb "Hello World!" 2
+Jgnnq Yqtnf!
 
 ```
 
 - Decoding
 
 ```
-> ruby main.rb "Jgnnq Vjgtg!" -2
+> ruby main.rb "Jgnnq Yqtnf!" -2
 Hello There!
 
 ```
