@@ -32,7 +32,7 @@ else
 	puts Parts.CAESARIUM
 	puts Parts.DIALOG
 	#
-	Keypress.LoopHandle do |k|
+	Keypress.Handle do |k|
 		k = k.downcase
 		# cyrillic to latin
 		k = "e" if k == "у"
@@ -45,8 +45,12 @@ else
 			exit
 		end
 	end
+	# interrupt handle
+	trap "SIGINT" do
+		exit 130
+	end
 	#
-	print Parts.MESSAGE
+	print Parts.MESSAGE(decodeMode)
 	loop do
 		message = gets.chomp.strip
 		if message != ""
@@ -55,7 +59,7 @@ else
 			Utils.Cls
 			puts Parts.CAESARIUM
 			puts Parts.DIALOG
-			print Parts.MESSAGE
+			print Parts.MESSAGE(decodeMode)
 			next
 		end
 	end
@@ -75,22 +79,20 @@ else
 			Utils.Cls
 			puts Parts.CAESARIUM
 			puts Parts.DIALOG
-			print Parts.MESSAGE("#{message}\n")
+			print Parts.MESSAGE(decodeMode, "#{message}\n")
 			print Parts.SHIFT
 			next
 		end
 	end
 end
 
-# Shift limit
+# Shift validation
 if shift > 26
-	if cli_mode
-		puts " Error: #{shift} for shift is too much. The maximum is 26".red
-		Utils.Pause
-	else
-		puts "Error: given shift is too big. The maximum is 26"
+	loop do
+		shift -= 26;
+		next if shift > 26
+		break
 	end
-	exit 1
 end
 
 RESULT = Encoder.Encode(message, decodeMode ? -shift : shift)
