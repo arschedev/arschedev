@@ -26,13 +26,11 @@ ruby main.rb <message> <shift>
 ```
 > ruby main.rb "Hello World!" 2
 Jgnnq Yqtnf!
-
 ```
 
 - Decoding
 
 ```
 > ruby main.rb "Jgnnq Yqtnf!" -2
-Hello There!
-
+Hello World!
 ```
