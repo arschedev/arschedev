@@ -4,10 +4,15 @@
 
 /*
 	. . . Command Line Arguments . . .
-	<number of lines | "h" | "help">
+	<number of lines | "height" | "help">
 		- number of lines: how many lines will be printed (default: INT_MAX)
-		- "h": (height) sets number of lines as your console buffer height
+		- "height": sets number of lines as your console buffer height
 		- "help": prints this message
+
+	. . . Information . . .
+        - NGGYU (Never Gonna Give You Up)
+        - Version 1.1.0
+        - Source: https://github.com/arschedev/arschedev/tree/main/Projects/C++/NGGYU-the-Rickroll
 */
 
 // Note: Windows only application
@@ -44,14 +49,14 @@ int main(int argc, char* argv[]) {
 
 	// command line arguments
 	if (argc >= 2) {
-		string _help_ = ". . . Command Line Arguments . . .\n<number of lines | \"h\" | \"help\">\n\t- number of lines: how many lines will be printed (default: INT_MAX)\n\t- \"h\": (height) sets number of lines as your console buffer height\n\t- \"help\": prints this message\n>> GitHub: https://github.com/arschedev/arschedev/tree/main/Projects/C++ <<\n";
+		string _help_ = ". . . Command Line Arguments . . .\n<number of lines | \"height\" | \"help\">\n\t- number of lines: how many lines will be printed (default: INT_MAX)\n\t- \"height\": sets number of lines as your console buffer height\n\t- \"help\": prints this message\n\n. . . Information . . .\n\t- NGGYU (Never Gonna Give You Up)\n\t- Version 1.1.0\n\t- Source: https://github.com/arschedev/arschedev/tree/main/Projects/C++/NGGYU-the-Rickroll\n";
 
 		string input(argv[1]);
 
 		if (input == "help") {
 			cout << _help_ << endl;
 			return 0;
-		} else if (input == "h") {
+		} else if (input == "height") {
 			lines = c_height;
 		} else if (regex_match(input, regex("[0-9]+"))) {
 			lines = stoi(input);
@@ -66,7 +71,7 @@ int main(int argc, char* argv[]) {
 	srand(time(NULL));
 
 	// title & color
-	system("title Get rickrolled :D . . . (https://github.com/arschedev/arschedev/tree/main/Projects/C++)");
+	system("title Get rickrolled :D . . . (https://github.com/arschedev/arschedev/tree/main/Projects/C++/NGGYU-the-Rickroll)");
 	system("color 0a");
 
 	// text & margins
