@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 arschedev
+ * Copyright (c) 2023 arschedev
  */
 
 #include <regex>
@@ -10,12 +10,15 @@
 namespace str2
 {
   /**
-   * EMPTY_STR
+   * @brief Empty string constant
    */
   const std::string EMPTY_STR;
 
   /**
-   * trim()
+   * @brief Returns given string trimmed at the edges
+   *
+   * @param string
+   * @return std::string
    */
   std::string trim(std::string string)
   {
@@ -28,9 +31,13 @@ namespace str2
   }
 
   /**
-   * split()
+   * @brief Returns given string splitted by char delimiter
+   *
+   * @param string
+   * @param delim
+   * @return std::vector of std::string`s
    */
-  std::vector<std::string> split(std::string string, char delimiter)
+  std::vector<std::string> split(std::string string, char delim)
   {
     std::vector<std::string> substrings;
 
@@ -38,7 +45,7 @@ namespace str2
     while (ss.good())
     {
       std::string substring;
-      std::getline(ss, substring, delimiter);
+      std::getline(ss, substring, delim);
       substrings.push_back(substring);
     }
 
@@ -46,7 +53,12 @@ namespace str2
   }
 
   /**
-   * includes()
+   * @brief Returns whether the string includes a substring
+   *
+   * @param string
+   * @param substring
+   * @return true
+   * @return false
    */
   bool includes(std::string string, std::string substring)
   {

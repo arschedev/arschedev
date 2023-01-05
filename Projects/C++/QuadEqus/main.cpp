@@ -1,15 +1,18 @@
 /**
- * Copyright (c) 2022 arschedev
+ * Copyright (c) 2023 arschedev
  */
 
 // Learning C++: Day 3
-#include "string2.hpp"
+#include "./includes/string2/string2.hpp"
 #include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <regex>
 #include <string>
 #include <vector>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 using std::cout;
 using std::endl;
 using std::getline;
@@ -29,15 +32,29 @@ void clrscr();
 void cout_v(vector<string> v);
 void fix_v(vector<string> *v);
 
-const regex NUMBER_REGEX = regex("-?\\d+(\\.\\d+)?");
+// colors
+#ifdef _WIN32
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+#else
+int hConsole = 0;
+int FOREGROUND_RED = 0;
+int FOREGROUND_GREEN = 0;
+int FOREGROUND_BLUE = 0;
+void SetConsoleTextAttribute(int a, int b) {}
+#endif
 
 int main()
 {
   // title
   greet();
 
-  // repeater
+  // dev mode
   bool dev = false;
+
+  // number regex
+  const regex NUMBER_REGEX = regex("-?\\d+(\\.\\d+)?");
+
+  // repeater
   for (;;)
   {
     // >
@@ -104,7 +121,8 @@ int main()
       // info
       else if (input == "info")
       {
-        cout << "\n info: version 0.1.1 by arschedev (https://github.com/arschedev)\n";
+        cout << "\n info: version 0.2.0 by arschedev";
+        cout << "\n source: https://github.com/arschedev/arschedev/tree/main/Projects/C++/QuadEqus\n";
       }
       // exit
       else if (input == "exit")
@@ -187,7 +205,20 @@ int main()
 
 void greet()
 {
-  cout << "\n ===========\n - QUADEQUS\n  Quadratic\n   Equation\n     Solver\n ===========\n\n Type \"help\" for help\n";
+#ifdef _WIN32
+  SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+#endif
+  cout << "\n ===========\n - ";
+#ifdef _WIN32
+  SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE);
+  cout << "QUADEQUS";
+#else
+  cout << "\033[36mQUADEQUS\033[0m";
+#endif
+#ifdef _WIN32
+  SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+#endif
+  cout << "\n  Quadratic\n   Equation\n     Solver\n ===========\n\n Type \"help\" for help\n";
 }
 
 void start()
@@ -197,14 +228,11 @@ void start()
 
 void clrscr()
 {
-  #ifdef _WIN32
+#ifdef _WIN32
   system("cls");
-  #elif _WIN64
-  system("cls");
-  #else
-  // CSI[2J - clear screen, CSI[H - move cursor to start position
-  cout << "\x1B[2J\x1B[H";
-  #endif
+#else
+  cout << "\033[2J\033[H";
+#endif
 }
 
 void cout_v(vector<string> v)
