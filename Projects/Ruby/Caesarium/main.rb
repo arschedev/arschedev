@@ -1,3 +1,7 @@
+##
+# Copyright (c) 2023 arschedev
+#
+
 # ruby main.rb
 # ruby main.rb <message> <shift>
 # ruby main.rb "Hello World!" 2

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 arschedev 
+ * Copyright (c) 2023 arschedev
  */
 
 /*

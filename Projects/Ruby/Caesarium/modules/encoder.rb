@@ -57,3 +57,7 @@ module Encoder
 		Struct.new(:normal, :upper, :lower).new(result, result.upcase, result.downcase)
 	end
 end
+
+##
+# Copyright (c) 2023 arschedev
+#
