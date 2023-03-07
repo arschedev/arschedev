@@ -1,6 +1,4 @@
-<h2 align="center">Hi, arschedev here</h2>
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=arschedev&label=Profile%20views&color=0e75b6&style=flat" alt="arschedev" /> </p>
+<h2 align="center"><i>Hi, arschedev here</i></h2>
 
 ![codewars](https://www.codewars.com/users/arscheved/badges/small)
 
@@ -15,3 +13,7 @@
 <p align="left">
 <a href="https://twitter.com/arschedev" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="arschedev" height="30" width="40" /></a>
 </p>
+
+---
+
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=arschedev&label=Profile%20views&color=0e75b6&style=flat" alt="arschedev" /> </p>
