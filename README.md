@@ -20,7 +20,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" />
 </p>
 
-- 🔭 I’m currently working on [MateNotes](https://github.com/arschedev/MateNotes)
+- 🔭 I’m currently working on [pathedit](https://github.com/arschedev/pathedit)
 <!-- - 🌱 I’m currently learning **Ruby, C++ & Dart** -->
 - 👨‍💻 All of my projects are available at [arschedev.github.io](https://arschedev.github.io)
 
