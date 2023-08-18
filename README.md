@@ -16,12 +16,12 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" width="40" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg" width="40" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-plain.svg" width="40" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-plain.svg" width="40" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" />
 </p>
 
 - 🔭 I’m currently working on [pathedit](https://github.com/arschedev/pathedit)
-<!-- - 🌱 I’m currently learning **Ruby, C++ & Dart** -->
 - 👨‍💻 All of my projects are available at [arschedev.github.io](https://arschedev.github.io)
 
 <h4 align="left">Connect with me:</h4>
