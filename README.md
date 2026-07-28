@@ -1,7 +1,5 @@
 ## Hi, arschedev here
 
-![codewars](https://www.codewars.com/users/arscheved/badges/small)
-
 <h4 align="left">Languages & Tools:</h3>
 <p align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" />
